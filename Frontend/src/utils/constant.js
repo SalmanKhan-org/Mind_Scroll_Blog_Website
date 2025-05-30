@@ -1,1 +1,1 @@
-export const API_END_POINT = "http://localhost:3000/api/v1";
+export const API_END_POINT = "https://mindscroll-i13q.onrender.com/api/v1";
