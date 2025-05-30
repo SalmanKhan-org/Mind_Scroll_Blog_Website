@@ -27,9 +27,9 @@ app.use("/api/v1", blogRouter);
 //error Middleware
 app.use(error);
 
-app.use(express.static(path.join(__dirname, "/Frontend/dist")));
-app.use("/*\w", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
+app.use(express.static(path.join(DIRNAME, "/Frontend/dist")));
+app.use("*", (req, res) => {
+    res.sendFile(path.resolve(DIRNAME, "Frontend", "dist", "index.html"));
 })
 
 const PORT = process.env.PORT;
