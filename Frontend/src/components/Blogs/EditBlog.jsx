@@ -195,14 +195,14 @@ const EditBlog = () => {
                             </div>
 
                             {/* Blog Content Editor */}
-                            <div className='mb-3'>
+                            <div className='mb-3 w-full'>
                                 <FormField
                                     control={form.control}
                                     name="blogContent"
                                     render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Blog Content</FormLabel>
-                                            <FormControl>
+                                            <FormControl className='w-full'>
                                                 <Editor
                                                     props={{
                                                         initialData: decode(field?.value || ""),

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 
 const AdminRouteProtection = () => {
-    const { user } = useSelector((state) => state?.user);
+    const { user, isLoggedIn } = useSelector((state) => state);
 
-    if (user && user?.isLoggedIn && user?.role === 'admin') {
+    if (user?.user && isLoggedIn && user?.user?.role === 'admin') {
         return <Outlet />;
     } else {
         return <Navigate to="/" />; // Or redirect to /login or /unauthorized

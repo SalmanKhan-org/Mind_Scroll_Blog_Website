@@ -20,6 +20,7 @@ import AllComments from './components/AllComments'
 import AllUsers from './components/AllUsers'
 import AuthRouteProtection from './components/AuthRouteProtection'
 import AdminRouteProtection from './components/AdminRouteProtection'
+import PageNotFound from './components/PageNotFound'
 
 const appRouter = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const appRouter = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
 
-      // 🔐 Protected Routes
+      //  Protected Routes
       {
         element: <AuthRouteProtection />,
         children: [
@@ -43,7 +44,7 @@ const appRouter = createBrowserRouter([
         ]
       },
 
-      // 🔐 Admin-Only Routes
+      //  Admin-Only Routes
       {
         element: <AdminRouteProtection />,
         children: [
@@ -51,16 +52,21 @@ const appRouter = createBrowserRouter([
         ]
       },
 
-      // 🟢 Public Routes
+      //  Public Routes
       { path: 'blog/:category/:slug', element: <BlogDetails /> },
       { path: "blogs/:category", element: <CategoryBlogs /> },
-      { path: "/search", element: <SearchResult /> }
+      { path: "/search", element: <SearchResult /> },
+
+      // Catch-all Not Found route inside layout
+      { path: "*", element: <PageNotFound /> },
     ]
   },
 
-  // 🔓 Auth Routes
+  //  Auth Routes
   { path: "/login", element: <Signin /> },
-  { path: "/signup", element: <Signup /> }
+  { path: "/signup", element: <Signup /> },
+  //  Catch-all Not Found route inside layout
+  { path: "*", element: <PageNotFound /> },
 ]);
 
 const App = () => {
